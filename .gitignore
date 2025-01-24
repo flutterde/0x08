@@ -6,7 +6,7 @@
 *.lo
 *.o
 *.obj
-
+.vscode/
 # Precompiled Headers
 *.gch
 *.pch
@@ -15,6 +15,10 @@
 *.so
 *.dylib
 *.dll
+test.cpp
+ex00/app
+ex01/app
+ex02/app
 
 # Fortran module files
 *.mod
