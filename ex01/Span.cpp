@@ -58,7 +58,7 @@ Span::Span(uint32_t N)
 void	Span::addNumber(int nbr)
 {
 	if (this->_nbr == this->_size)
-		throw std::string("out of bound");
+		throw std::runtime_error("out of bound");
 	this->vec.push_back(nbr);
 	this->_size++;
 }
@@ -70,7 +70,7 @@ uint32_t	Span::shortestSpan()
 	int	i = 0;
 	int	j;
 	if (_size < 2)
-		throw std::string("could not determine it");
+		throw std::runtime_error("could not determine it");
 	while (i < _size - 1)
 	{
 		j = i + 1;

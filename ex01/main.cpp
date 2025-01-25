@@ -25,9 +25,9 @@ void	example1()
 		std::cout << "the shortest: " << sp.shortestSpan() << std::endl;
 		std::cout << "the longest: " << sp.longestSpan() << std::endl;
 	}
-	catch (const std::string &e)
+	catch (const std::exception& e)
 	{
-		std::cerr << e << '\n';
+		std::cerr << e.what() << '\n';
 	}
 }
 
@@ -45,9 +45,9 @@ void	example2()
 		std::cout << "the shortest: " << sp.shortestSpan() << std::endl;
 		std::cout << "the longest: " << sp.longestSpan() << std::endl;
 	}
-	catch (const std::string &e)
+	catch (const std::exception& e)
 	{
-		std::cerr << e << '\n';
+		std::cerr << e.what() << '\n';
 	}
 }
 
@@ -72,9 +72,9 @@ void	example3()
 		std::cout << "the shortest: " << sp.shortestSpan() << std::endl;
 		std::cout << "the longest: " << sp.longestSpan() << std::endl;
 	}
-	catch (const std::string &e)
+	catch (const std::exception& e)
 	{
-		std::cerr << e << '\n';
+		std::cerr << e.what() << '\n';
 	}
 }
 
