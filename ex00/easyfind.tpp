@@ -20,5 +20,5 @@ typename T::iterator	easyfind(T& cont, int val)
 		if (*it == val)
 			return (it);
 	}
-	throw std::string("not found");
+	throw std::runtime_error("not found");
 }

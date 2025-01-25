@@ -30,10 +30,7 @@ Span::Span(const Span& obj)
 {
 	if (DEBUG)
 		std::cout << "Span Copy constructor called" << std::endl;
-	this->_nbr = obj._nbr;
-	this->_size = obj._size;
-	for (std::vector<int>::const_iterator it = obj.vec.begin(); it != obj.vec.end(); ++it)
-		this->vec.push_back(*it);
+	*this = obj;
 }
 
 Span& Span::operator=(const Span& obj)
@@ -44,8 +41,7 @@ Span& Span::operator=(const Span& obj)
 	{
 		this->_nbr = obj._nbr;
 		this->_size = obj._size;
-		for (std::vector<int>::const_iterator it = obj.vec.begin(); it != obj.vec.end(); ++it)
-		this->vec.push_back(*it);
+		this->vec = obj.vec;
 	}
 	return (*this);
 }
@@ -65,16 +61,6 @@ void	Span::addNumber(int nbr)
 		throw std::string("out of bound");
 	this->vec.push_back(nbr);
 	this->_size++;
-}
-
-void printing(std::vector<int>& vec) //! delete this
-{
-	std::cout << " --------------------------- " << std::endl;
-	for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
-	{
-		std::cout << "nbr: " << *it << std::endl;
-	}
-	std::cout << " --------------------------- " << std::endl;
 }
 
 uint32_t	Span::shortestSpan()
@@ -105,7 +91,7 @@ uint32_t	Span::longestSpan()
 {
 	uint32_t	res;
 	if (this->vec.size() < 2)
-		throw std::string("could not determine it");
+		throw std::runtime_error("could not determine it");
 	std::vector<int>	tmp = this->vec;
 	std::sort(tmp.begin(), tmp.end());
 	long	rs = (tmp.at(tmp.size() - 1)) - tmp.at(0);
@@ -113,7 +99,7 @@ uint32_t	Span::longestSpan()
 	return (res);
 }
 
-void		Span::addNumber(std::vector<int>& newArr)
+void	Span::addNumber(std::vector<int>& newArr)
 {
 	try
 	{
@@ -122,9 +108,9 @@ void		Span::addNumber(std::vector<int>& newArr)
 			this->addNumber(*it);
 		}
 	}
-	catch(const std::string& e)
+	catch(const std::exception &e)
 	{
-		throw std::string(e);
+		throw std::runtime_error(e.what());
 	}
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ochouati <ochouati@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/25 10:34:20 by ochouati          #+#    #+#             */
+/*   Updated: 2025/01/25 10:34:20 by ochouati         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
 #include <iostream>
@@ -11,15 +23,11 @@ class MutantStack : public std::stack<T> {
 	MutantStack&	operator=(const MutantStack& obj);
 	~MutantStack();
 	typedef typename std::stack<T>::container_type::iterator iterator;
+	iterator	begin();
+    iterator	end();
 	typedef typename std::stack<T>::container_type::const_iterator const_iterator;
-	iterator		 begin();
-    iterator		end();
-	iterator	 cbegin();
-    iterator	 cend();
-    iterator	 rbegin();
-    iterator	 rend();
-    iterator	 crbegin();
-    iterator	 crend();
+	const_iterator begin() const ;
+	const_iterator end() const ;
 
 };
 

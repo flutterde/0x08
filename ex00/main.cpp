@@ -24,8 +24,8 @@ void	example1()
 	try {
 		std::vector<int>::iterator it = easyfind(vec, 53);
 		std::cout << "the it is: " << *it << std::endl;
-	} catch(std::string& e) {
-		std::cout << "Error: " << e << "." << std::endl;
+	} catch(const std::exception &e) {
+		std::cout << "Error: " << e.what() << "." << std::endl;
 	}
 }
 
